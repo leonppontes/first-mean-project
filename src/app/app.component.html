@@ -1,6 +1,6 @@
 <app-header></app-header>
 <main>
-  <app-post-create (postCreated)="onPostAdded($event)"></app-post-create>
-  <app-post-list [posts]="storedPosts"></app-post-list>
+  <app-post-create (postCreated)="onPostAdded($event)"></app-post-create> <!-- postCreated is the event emitter that runs when the user clicks the save button-->
+  <app-post-list [posts]="storedPosts"></app-post-list> <!--Here we have the inverse order. From component to DOM https://ducmanhphan.github.io/img/Angular-architecture/data-binding.png-->
 </main>
 
