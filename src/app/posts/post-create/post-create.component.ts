@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Post } from '../post.model';
+import { PostsService } from '../posts.service';
 
 @Component({
   selector: 'app-post-create',
@@ -11,16 +11,13 @@ import { Post } from '../post.model';
 export class PostCreateComponent {
   enteredContent = '';
   enteredTitle = '';
-  @Output() postCreated = new EventEmitter<Post>(); //Output turns this event into something that can be seem from the outside
+
+  constructor(public postsService: PostsService) {}
 
   onAddPost(form: NgForm) { //runs when the user clicks the button to save post
     if (form.invalid) {
       return;
     }
-    const post: Post = {
-      title: form.value.title,
-      content: form.value.content
-    }
-    this.postCreated.emit(post); //postCreated is the event emitter. app.component will get this data
+    this.postsService.addPost(form.value.title, form.value.content); //postCreated is the event emitter. app.component will get this data
   }
 }
