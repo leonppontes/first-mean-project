@@ -19,5 +19,6 @@ export class PostCreateComponent {
       return;
     }
     this.postsService.addPost(form.value.title, form.value.content); //postCreated is the event emitter. app.component will get this data
+    form.resetForm();
   }
 }
