@@ -34,3 +34,8 @@ import { PostListComponent } from './posts/post-list/post-list.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+//A bootstrapped component is an entry component that Angular loads into the DOM during
+//the bootstrap process (application launch). Other entry components are loaded dynamically
+// by other means, such as with the router. Angular loads a root AppComponent dynamically
+//because it's listed by type in @NgModule.

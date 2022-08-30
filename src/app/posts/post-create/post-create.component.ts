@@ -12,13 +12,16 @@ export class PostCreateComponent {
   enteredContent = '';
   enteredTitle = '';
 
+  //When Angular creates a new instance of a component, directive, or pipe class,
+  // it determines which services or other dependencies that class needs by looking
+  // at the constructor parameter types
   constructor(public postsService: PostsService) {}
 
-  onAddPost(form: NgForm) { //runs when the user clicks the button to save post
+  onAddPost(form: NgForm) { //runs when the user submits the form
     if (form.invalid) {
       return;
     }
-    this.postsService.addPost(form.value.title, form.value.content); //postCreated is the event emitter. app.component will get this data
+    this.postsService.addPost(form.value.title, form.value.content);
     form.resetForm();
   }
 }
